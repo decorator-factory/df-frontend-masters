@@ -1,4 +1,5 @@
-How do I run this?
-```
-podman run --rm --name frontend-masters -p 127.0.0.1:58008:80 -v ./content:/usr/local/apache2/htdocs/:ro docker.io/httpd:2.4
-```
+Some of the content on this repo is taken from https://www.frontendmentor.io.
+
+Go to https://decorator-factory.github.io/df-frontend-masters/ for an index of challenges.
+
+To run locally, install Podman and run `local.sh`.
