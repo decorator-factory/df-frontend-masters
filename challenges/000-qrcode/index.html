@@ -43,28 +43,6 @@
             box-shadow: 0px 25px 25px rgba(0, 0, 0, 0.0477);
         }
 
-        .qr-code {
-            background: var(--white);
-
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-300);
-
-            max-width: 320px;
-            border-radius: 20px;
-            padding: var(--space-200);
-            padding-block-end: var(--space-500);
-        }
-
-        .qr-code p {
-            padding-inline: var(--space-200);
-            text-align: center;
-        }
-
-        .qr-code img {
-            border-radius: 10px;
-        }
-
         .text-1 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
@@ -80,6 +58,31 @@
             letter-spacing: 0.2px;
             line-height: 1.4;
         }
+
+        .qr-code {
+            background: var(--white);
+
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-300);
+
+            max-width: 320px;
+            border-radius: 20px;
+            padding: var(--space-200);
+            padding-block-end: var(--space-500);
+        }
+
+        .qr-code .qr-description {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-200);
+            padding-inline: var(--space-200);
+            text-align: center;
+        }
+
+        .qr-code img {
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -88,11 +91,13 @@
         <a href="https://www.frontendmentor.io/">
             <img src="images/image-qr-code.png" alt="QR code leading to Frontend Mentor">
         </a>
-        <p class="text-1 slate-900">Improve your front-end skills by building projects</p>
-        <p class="text-2 slate-500">
-            Scan the QR code to visit Frontend Mentor
-            and take your coding skills to the next level
-        </p>
+        <div class="qr-description">
+            <p class="text-1 slate-900">Improve your front-end skills by building projects</p>
+            <p class="text-2 slate-500">
+                Scan the QR code to visit Frontend Mentor
+                and take your coding skills to the next level
+            </p>
+        </div>
     </article>
 </body>
 
