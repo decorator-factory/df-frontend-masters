@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Blog preview card</title>
+    <link rel="stylesheet" href="../common/reset.css">
+
+    <style>
+        /* See README of the repository for font information */
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+        :root {
+            --space-50: 0.25rem;
+            --space-100: 0.5rem;
+            --space-150: 0.75rem;
+            --space-200: 1.5rem;
+
+            --radius-1: 4px;
+            --radius-2: 10px;
+            --radius-3: 20px;
+
+            --yellow-300: hsl(50deg, 80%, 70%);
+            --yellow-500: hsl(47deg, 88%, 63%);
+            --gray-950: hsl(0deg, 0%, 7%);
+            --gray-500: hsl(0deg, 0%, 42%);
+        }
+
+        html {
+            font-family: 'Figtree', sans-serif;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--gray-950);
+        }
+
+        body {
+            /* Center card in the middle of the body */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            background: var(--yellow-300);
+            padding: 1em;
+            container-type: inline-size;
+        }
+
+        /* Utilities */
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .gap-200 {
+            gap: var(--space-200);
+        }
+
+        .gap-150 {
+            gap: var(--space-150);
+        }
+
+        .gap-150-to-50 {
+            /* gap-150 when big, gap-50 when small */
+            gap: clamp(var(--space-50), 1.8cqb - 0.3rem, var(--space-150));
+        }
+
+        .round-1 {
+            border-radius: var(--radius-1);
+        }
+
+        .round-2 {
+            border-radius: var(--radius-2);
+        }
+
+        .round-3 {
+            border-radius: var(--radius-3);
+        }
+
+        .bg-yellow-500 {
+            background-color: var(--yellow-500);
+        }
+
+        .highlight-yellow-500:hover {
+            color: var(--yellow-500);
+        }
+
+        .font-gray-500 {
+            color: var(--gray-500);
+        }
+
+        .text-small {
+            font-size: 0.875rem;
+        }
+
+        .text-normal {
+            font-size: 1rem;
+        }
+
+        .text-small-bold {
+            font-size: 0.875rem;
+            font-weight: 800;
+        }
+
+        .text-heading {
+            font-size: clamp(1.25rem, 2vmax, 1.5rem);
+            font-weight: 800;
+        }
+
+        .no-decorations {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Blocks */
+
+        .tag {
+            padding: var(--space-50) var(--space-150);
+            max-width: max-content;
+        }
+
+        .blog-preview-card {
+            --card-max-width: 24rem;
+
+            background: white;
+            padding-bottom: var(--space-200);
+            max-width: var(--card-max-width);
+
+            border: 1px solid var(--gray-950);
+            box-shadow: 0.5rem 0.5rem black;
+        }
+
+        .blog-preview-card> :not(.card-illustration) {
+            margin-inline: var(--space-200);
+        }
+
+        .blog-preview-card .card-illustration {
+            /* Remove padding as the card gets smaller */
+            margin-inline: max(0px, calc(var(--space-200) - var(--card-max-width) + 100%));
+            margin-top: max(0px, calc(var(--space-200) - var(--card-max-width) + 100%));
+
+            /* Interpolate border radius so that the corners of the image fit nicely into the card */
+            border-radius: clamp(var(--radius-2), var(--card-max-width) - 100cqi, var(--radius-3));
+            border-bottom-left-radius: clamp(0px, 100cqi - var(--card-max-width) + var(--space-200), var(--radius-2));
+            border-bottom-right-radius: clamp(0px, 100cqi - var(--card-max-width) + var(--space-200), var(--radius-2));
+        }
+
+        .blog-preview-card .tag {
+            /* Sink the tag into the card when the card gets smaller */
+            margin-top: clamp(-2 * var(--space-200) + 0.25em, 100cqi - var(--card-max-width), 0px);
+
+            outline: 2px solid white;
+        }
+
+        .blog-preview-card .avatar {
+            max-width: 2rem;
+            max-height: 2rem;
+        }
+
+        .blog-preview-card {
+            padding: 0;
+            padding-bottom: var(--space-200);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog-preview-card  flex-col gap-200 round-3">
+        <img src="../001-blog-preview-card/images/illustration-article.svg" alt="" class="card-illustration">
+        <div class="flex-col gap-150-to-50">
+            <div class="tag  text-small-bold round-1 bg-yellow-500">Learning</div>
+            <div class="text-small">Published <time datetime="2023-12-21">21 Dec 2023</time></div>
+            <h2>
+                <a class="text-heading highlight-yellow-500 no-decorations" href="#">HTML & CSS foundations</a>
+            </h2>
+            <p class="font-gray-500">
+                These languages are the backbone of every website,
+                defining structure, content, and presentation.
+            </p>
+        </div>
+        <div class="flex-row align-items-center gap-150">
+            <img class="avatar" src="../001-blog-preview-card/images/image-avatar.webp" alt="avatar of Greg Hooper">
+            <div class="text-small-bold">Greg Hooper</div>
+        </div>
+    </div>
+</body>
+
+</html>
