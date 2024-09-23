@@ -8,18 +8,23 @@
     <link rel="stylesheet" href="../common/reset.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+        @font-face {
+            font-family: 'Figtree';
+            font-display: swap;
+            src: local('Figtree'), url('fonts/Figtree.ttf') format("truetype");
+        }
 
         :root {
-            --space-50: 4px;
-            --space-100: 8px;
-            --space-150: 12px;
-            --space-200: 24px;
+            --space-50: 0.25rem;
+            --space-100: 0.5rem;
+            --space-150: 0.75rem;
+            --space-200: 1.5rem;
 
             --radius-1: 4px;
             --radius-2: 10px;
             --radius-3: 20px;
 
+            --yellow-300: hsl(50deg, 80%, 70%);
             --yellow-500: hsl(47deg, 88%, 63%);
             --gray-950: hsl(0deg, 0%, 7%);
             --gray-500: hsl(0deg, 0%, 42%);
@@ -39,8 +44,7 @@
             align-items: center;
             flex-direction: column;
 
-            padding: 32px;
-            background: var(--yellow-500);
+            background: var(--yellow-300);
         }
 
         /* Utilities */
@@ -124,15 +128,15 @@
         .blog-preview-card {
             background: white;
             padding: var(--space-200);
-            max-width: 384px;
+            max-width: 24rem;
 
             border: 1px solid var(--gray-950);
-            box-shadow: 8px 8px black;
+            box-shadow: 0.5rem 0.5rem black;
         }
 
         .blog-preview-card .avatar {
-            max-width: 32px;
-            max-height: 32px;
+            max-width: 2rem;
+            max-height: 2rem;
         }
     </style>
 </head>
